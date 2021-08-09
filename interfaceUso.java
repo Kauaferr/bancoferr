@@ -130,7 +130,7 @@ public class interfaceUso {
 				}
 				else {
 					
-					System.out.println("QUANTO VOCÊ DESEJA TRASNFERIR?:");
+					System.out.println("QUANTO VOCÊ DESEJA TRANSFERIR?:");
 					boolean validaTransferencia = contaCorrente1.transferir(r1.nextDouble(), contaDestino);
 					if ( validaTransferencia == true) {
 					contaCorrente1.cobrarTaxa();
@@ -292,7 +292,7 @@ public class interfaceUso {
 					}
 					else {
 						
-						System.out.println("QUANTO VOCÊ DESEJA TRASNFERIR?:");
+						System.out.println("QUANTO VOCÊ DESEJA TRANSFERIR?:");
 						contaPoupanca1.transferir(r1.nextDouble(), contaDestino);
 						contaPoupanca1.somarBonus();
 
