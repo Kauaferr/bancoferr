@@ -21,9 +21,9 @@ public class interfaceUso {
 		
 		
 		System.out.println("-----------------------------------------");
-		System.out.println("QUAL CONTA VOC  DESEJA CRIAR?");
+		System.out.println("QUAL CONTA VOC√ä DESEJA CRIAR?");
 		System.out.println("1 - CONTA CORRENTE");
-		System.out.println("2 - CONTA POUPAN«A");
+		System.out.println("2 - CONTA POUPAN√áA");
 		System.out.println("-----------------------------------------");
 
 		int resposta0 = scan.nextInt();
@@ -50,20 +50,20 @@ public class interfaceUso {
 			System.out.println("-----------------------------------------");
 
 				
-			System.out.println("O N⁄MERO DA SUA CONTA …: " + contaCorrente1.getNumero());
-			System.out.println("O N⁄MERO DA SUA AG NCIA …: " + contaCorrente1.getAgencia());
-			System.out.println("O TITULAR DA CONTA …: " + contaCorrente1.getTitular().getNome());
-			System.out.println("O CPF INFORMADO …: " + Titular.getCpf());
+			System.out.println("O N√öMERO DA SUA CONTA √â: " + contaCorrente1.getNumero());
+			System.out.println("O N√öMERO DA SUA AG√äNCIA √â: " + contaCorrente1.getAgencia());
+			System.out.println("O TITULAR DA CONTA √â: " + contaCorrente1.getTitular().getNome());
+			System.out.println("O CPF INFORMADO √â: " + Titular.getCpf());
 			
 			System.out.println("-----------------------------------------");
 
 		
 		
 		
-			System.out.println("DIGITE O N⁄MERO DA SUA AG NCIA E O N⁄MERO DA SUA CONTA ");
-			System.out.println("AG NCIA: ");
+			System.out.println("DIGITE O N√öMERO DA SUA AG√äNCIA E O N√öMERO DA SUA CONTA ");
+			System.out.println("AG√äNCIA: ");
 			boolean validaAgencia = contaCorrente1.validaAgencia(scan.nextInt());
-			System.out.println("N⁄MERO: ");
+			System.out.println("N√öMERO: ");
 			boolean validaNumero = contaCorrente1.validaNumero(scan.nextInt());
 			
 			System.out.println("-----------------------------------------");
@@ -84,15 +84,15 @@ public class interfaceUso {
 		while ( cont >= 0) {
 			
 			System.out.println("-----------------------------------------");
-			System.out.println("O QUE VOC  DESEJA FAZER ?");
+			System.out.println("O QUE VOC√ä DESEJA FAZER ?");
 			System.out.println("1 - DEPOSITAR");
 			System.out.println("2 - SACAR");
 			System.out.println("3 - TRANSFERIR");
 			System.out.println("4 - MUDAR SENHA");
 			System.out.println("5 - MUDAR NOME DO TITULAR");
-			System.out.println("6 - CANCELAR OPERA«√O");
+			System.out.println("6 - CANCELAR OPERA√á√ÉO");
 			System.out.println("7 - CONSULTAR SALDO");
-			System.out.println("VOC  POSSUI: " + cont-- + " OPERA«’ES RESTANTES");
+			System.out.println("VOC√ä PODE FAZER MAIS: " + cont-- + " OPERA√á√ïES");
 
 			System.out.println("-----------------------------------------");
 
@@ -101,14 +101,14 @@ public class interfaceUso {
 		switch(resposta){
 		
 			case 1: 
-			System.out.println("QUANTO VOC  DESEJA DEPOSITAR?:");
+			System.out.println("QUANTO VOC√ä DESEJA DEPOSITAR?:");
 			contaCorrente1.depositar(scan.nextDouble());
 			contaCorrente1.cobrarTaxa();
 			
 		break;
 		
 			case 2: 
-			System.out.println("QUANTO VOC  DESEJA SACAR?:");
+			System.out.println("QUANTO VOC√ä DESEJA SACAR?:");
 			boolean validaSaque = contaCorrente1.sacar(scan.nextDouble());
 			if ( validaSaque == true) {
 			contaCorrente1.cobrarTaxa();
@@ -117,7 +117,7 @@ public class interfaceUso {
 		break;
 			
 			case 3:
-				System.out.println("DIGITE O N⁄MERO E A AG NCIA DA CONTA DE DESTINO?: ");
+				System.out.println("DIGITE O N√öMERO E A AG√äNCIA DA CONTA DE DESTINO?: ");
 				Conta contaDestino = new contaCorrente(scan.nextInt(), scan.nextInt());
 					
 				int confereNumeroDestino = contaDestino.getNumero();
@@ -126,11 +126,11 @@ public class interfaceUso {
 				int pegarAgenciaRemetente = contaCorrente1.getAgencia();
 					
 				if( confereNumeroDestino == pegarNumeroRemetente && confereNumeroAgencia == pegarAgenciaRemetente) {
-					System.out.println("A CONTA DE DESTINO E CONTA REMETENTE S√O IGUAIS!! TRANSFER NCIA IMPOSSÕVEL DE SER REALIZADA");
+					System.out.println("A CONTA DE DESTINO E CONTA REMETENTE S√ÉO IGUAIS!! TRANSFER√äNCIA IMPOSS√çVEL DE SER REALIZADA");
 				}
 				else {
 					
-					System.out.println("QUANTO VOC  DESEJA TRANSFERIR?:");
+					System.out.println("QUANTO VOC√ä DESEJA TRANSFERIR?:");
 					boolean validaTransferencia = contaCorrente1.transferir(r1.nextDouble(), contaDestino);
 					if ( validaTransferencia == true) {
 					contaCorrente1.cobrarTaxa();
@@ -154,37 +154,37 @@ public class interfaceUso {
 			System.out.println("QUAL O NOVO NOME: ");
 			Titular.setNome(novoNome.nextLine());
 			System.out.println("NOME ALTERADO COM SUCESSO! ");
-			System.out.println("O NOVO NOME …: " + Titular.getNome());
+			System.out.println("O NOVO NOME √â: " + Titular.getNome());
 			
 		break;
 		
 			case 6:
 							
-			System.out.println("OPERA«√O CANCELADA");
+			System.out.println("OPERA√á√ÉO CANCELADA");
 			return;
 						
 			
 		
 		
 			case 7:
-			System.out.println("SEU SALDO …: "  + contaCorrente1.getSaldo());
+			System.out.println("SEU SALDO √â: "  + contaCorrente1.getSaldo());
 									
 									
 		break;	
 		
 			case 8:
-			System.out.println("SEU NOME …: " + contaCorrente1.getTitular().getNome());
+			System.out.println("SEU NOME √â: " + contaCorrente1.getTitular().getNome());
 		}
 		}
 		
 		}
 		else {
-			System.out.println("N⁄MERO DA CONTA E/OU AG NCIA INCORRETOS!!");
+			System.out.println("N√öMERO DA CONTA E/OU AG√äNCIA INCORRETOS!!");
 		}
 			}
 		}
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//AQUI SE FAZ A CONTA POUPAN«A 
+//AQUI SE FAZ A CONTA POUPAN√áA 
 		else {
 			if ( resposta0 == 2) {
 				
@@ -208,20 +208,20 @@ public class interfaceUso {
 				System.out.println("-----------------------------------------");
 
 					
-				System.out.println("O N⁄MERO DA SUA CONTA …: " + contaPoupanca1.getNumero());
-				System.out.println("O N⁄MERO DA SUA AG NCIA …: " + contaPoupanca1.getAgencia());
-				System.out.println("O TITULAR DA CONTA …: " + contaPoupanca1.getTitular().getNome());
-				System.out.println("O CPF INFORMADO …: " + Titular.getCpf());
+				System.out.println("O N√öMERO DA SUA CONTA √â: " + contaPoupanca1.getNumero());
+				System.out.println("O N√öMERO DA SUA AG√äNCIA √â: " + contaPoupanca1.getAgencia());
+				System.out.println("O TITULAR DA CONTA √â: " + contaPoupanca1.getTitular().getNome());
+				System.out.println("O CPF INFORMADO √â: " + Titular.getCpf());
 				
 				System.out.println("-----------------------------------------");
 
 			
 			
 			
-				System.out.println("DIGITE O N⁄MERO DA SUA AG NCIA E O N⁄MERO DA SUA CONTA ");
-				System.out.println("AG NCIA: ");
+				System.out.println("DIGITE O N√öMERO DA SUA AG√äNCIA E O N√öMERO DA SUA CONTA ");
+				System.out.println("AG√äNCIA: ");
 				boolean validaAgencia = contaPoupanca1.validaAgencia(scan.nextInt());
-				System.out.println("N⁄MERO: ");
+				System.out.println("N√öMERO: ");
 				boolean validaNumero = contaPoupanca1.validaNumero(scan.nextInt());
 				
 				System.out.println("-----------------------------------------");
@@ -243,15 +243,15 @@ public class interfaceUso {
 				
 				System.out.println("-----------------------------------------");
 
-				System.out.println("O QUE VOC  DESEJA FAZER ?");
+				System.out.println("O QUE VOC√ä DESEJA FAZER ?");
 				System.out.println("1 - DEPOSITAR");
 				System.out.println("2 - SACAR");
 				System.out.println("3 - TRANSFERIR");
 				System.out.println("4 - MUDAR SENHA");
 				System.out.println("5 - MUDAR NOME DO TITULAR");
-				System.out.println("6 - CANCELAR OPERA«√O");
+				System.out.println("6 - CANCELAR OPERA√á√ÉO");
 				System.out.println("7 - CONSULTAR SALDO");
-				System.out.println("VOC  POSSUI: " + cont-- + " OPERA«’ES RESTANTES");
+				System.out.println("VOC√ä POODE FAZER MAIS: " + cont-- + " OPERA√á√ïES");
 
 				System.out.println("-----------------------------------------");
 
@@ -260,7 +260,7 @@ public class interfaceUso {
 			switch(resposta){
 			
 				case 1: 
-				System.out.println("QUANTO VOC  DESEJA DEPOSITAR?:");
+				System.out.println("QUANTO VOC√ä DESEJA DEPOSITAR?:");
 				contaPoupanca1.depositar(scan.nextDouble());
 				contaPoupanca1.somarBonus();
 
@@ -268,7 +268,7 @@ public class interfaceUso {
 			break;
 			
 				case 2: 
-				System.out.println("QUANTO VOC  DESEJA SACAR?:");
+				System.out.println("QUANTO VOC√ä DESEJA SACAR?:");
 				boolean validaBonus = contaPoupanca1.sacar(scan.nextDouble());
 				if( validaBonus == true) {
 				contaPoupanca1.somarBonus();
@@ -279,7 +279,7 @@ public class interfaceUso {
 			break;
 				
 				case 3:
-					System.out.println("DIGITE O N⁄MERO E A AG NCIA DA CONTA DE DESTINO?: ");
+					System.out.println("DIGITE O N√öMERO E A AG√äNCIA DA CONTA DE DESTINO?: ");
 					Conta contaDestino = new Conta (scan.nextInt(), scan.nextInt());
 						
 					int confereNumeroDestino = contaDestino.getNumero();
@@ -288,11 +288,11 @@ public class interfaceUso {
 					int pegarAgenciaRemetente = contaPoupanca1.getAgencia();
 						
 					if( confereNumeroDestino == pegarNumeroRemetente && confereNumeroAgencia == pegarAgenciaRemetente) {
-						System.out.println("A CONTA DE DESTINO E CONTA REMETENTE S√O IGUAIS!! TRANSFER NCIA IMPOSSÕVEL DE SER REALIZADA");
+						System.out.println("A CONTA DE DESTINO E CONTA REMETENTE S√ÉO IGUAIS!! TRANSFER√äNCIA IMPOSS√çVEL DE SER REALIZADA");
 					}
 					else {
 						
-						System.out.println("QUANTO VOC  DESEJA TRANSFERIR?:");
+						System.out.println("QUANTO VOC√ä DESEJA TRANSFERIR?:");
 						contaPoupanca1.transferir(r1.nextDouble(), contaDestino);
 						contaPoupanca1.somarBonus();
 
@@ -316,20 +316,20 @@ public class interfaceUso {
 				System.out.println("QUAL O NOVO NOME: ");
 				Titular.setNome(novoNome.nextLine());
 				System.out.println("NOME ALTERADO COM SUCESSO! ");
-				System.out.println("O NOVO NOME …: " + Titular.getNome());
+				System.out.println("O NOVO NOME √â: " + Titular.getNome());
 				
 			break;
 			
 				case 6:
 								
-				System.out.println("OPERA«√O CANCELADA");
+				System.out.println("OPERA√á√ÉO CANCELADA");
 				return;
 							
 				
 			
 			
 				case 7:
-				System.out.println("SEU SALDO …: "  + contaPoupanca1.getSaldo());
+				System.out.println("SEU SALDO √â: "  + contaPoupanca1.getSaldo());
 										
 										
 			break;	
@@ -341,7 +341,7 @@ public class interfaceUso {
 			}
 			else {
 				
-				System.out.println("N⁄MERO DA CONTA E/OU AG NCIA INCORRETOS!!");
+				System.out.println("N√öMERO DA CONTA E/OU AG√äNCIA INCORRETOS!!");
 			}
 				}
 				
