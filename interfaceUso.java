@@ -8,7 +8,8 @@ public class interfaceUso {
 		
 		
 		
-		
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//AQUI SE FAZ A CONTA CORRENTE
 		
 		Scanner scan = new Scanner ( System.in);
 		Scanner senha = new Scanner(System.in);
@@ -60,7 +61,7 @@ public class interfaceUso {
 		
 		
 		
-			System.out.println("DIGITE O NÚMERO DA SUA AGÊNCIA E O NÚMERO DA SUA CONTA ");
+			System.out.println("DIGITE O NÃšMERO DA SUA AGÃŠNCIA E O NÃšMERO DA SUA CONTA ");
 			System.out.println("AGÊNCIA: ");
 			boolean validaAgencia = contaCorrente1.validaAgencia(scan.nextInt());
 			System.out.println("NÚMERO: ");
@@ -97,7 +98,11 @@ public class interfaceUso {
 			System.out.println("-----------------------------------------");
 
 			int  resposta = scan.nextInt();
-		
+			
+			
+			
+//----------------------------------------------------------------------------------------------------------------
+	//AQUI COMEÇA O SWITCH DA CONTA CORRENTE
 		switch(resposta){
 		
 			case 1: 
@@ -184,7 +189,7 @@ public class interfaceUso {
 			}
 		}
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//AQUI SE FAZ A CONTA POUPANÇA 
+//AQUI SE FAZ A CONTA POUPANÇA
 		else {
 			if ( resposta0 == 2) {
 				
@@ -209,8 +214,8 @@ public class interfaceUso {
 
 					
 				System.out.println("O NÚMERO DA SUA CONTA É: " + contaPoupanca1.getNumero());
-				System.out.println("O NÚMERO DA SUA AGÊNCIA É: " + contaPoupanca1.getAgencia());
-				System.out.println("O TITULAR DA CONTA É: " + contaPoupanca1.getTitular().getNome());
+				System.out.println("O NÚMERO DA SUA AGÊNCIA: " + contaPoupanca1.getAgencia());
+				System.out.println("TITULAR DA CONTA: " + contaPoupanca1.getTitular().getNome());
 				System.out.println("O CPF INFORMADO É: " + Titular.getCpf());
 				
 				System.out.println("-----------------------------------------");
@@ -218,7 +223,7 @@ public class interfaceUso {
 			
 			
 			
-				System.out.println("DIGITE O NÚMERO DA SUA AGÊNCIA E O NÚMERO DA SUA CONTA ");
+				System.out.println("DIGITE O NÚMERO DA AGÊNCIA E O NÚMERO DA SUA CONTA ");
 				System.out.println("AGÊNCIA: ");
 				boolean validaAgencia = contaPoupanca1.validaAgencia(scan.nextInt());
 				System.out.println("NÚMERO: ");
@@ -251,12 +256,15 @@ public class interfaceUso {
 				System.out.println("5 - MUDAR NOME DO TITULAR");
 				System.out.println("6 - CANCELAR OPERAÇÃO");
 				System.out.println("7 - CONSULTAR SALDO");
-				System.out.println("VOCÊ POODE FAZER MAIS: " + cont-- + " OPERAÇÕES");
+				
+				System.out.println("VOCÃŠ POODE FAZER MAIS: " + cont-- + " OPERACÕES");
 
 				System.out.println("-----------------------------------------");
 
 				int  resposta = scan.nextInt();
-			
+
+//-------------------------------------------------------------------------------------------------------------------------
+// AQUI COMEÇA O SWITCH DA CONTA POUPANÇA
 			switch(resposta){
 			
 				case 1: 
@@ -288,7 +296,7 @@ public class interfaceUso {
 					int pegarAgenciaRemetente = contaPoupanca1.getAgencia();
 						
 					if( confereNumeroDestino == pegarNumeroRemetente && confereNumeroAgencia == pegarAgenciaRemetente) {
-						System.out.println("A CONTA DE DESTINO E CONTA REMETENTE SÃO IGUAIS!! TRANSFERÊNCIA IMPOSSÍVEL DE SER REALIZADA");
+						System.out.println("A CONTA DE DESTINO E CONTA REMETENTE SÃO IGUAIS!! TRANSFERENCIA IMPOSSÍVEL DE SER REALIZADA");
 					}
 					else {
 						
