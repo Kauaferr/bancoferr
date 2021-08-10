@@ -42,7 +42,7 @@ public class Cliente {
 				System.out.println("O CAMPO NOME E/OU CPF ESTÃO VAZIO!!");
 
 				return false;
-			}else {
+			}else {                                
 				return true;
 			}
 		}

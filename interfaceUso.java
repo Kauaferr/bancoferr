@@ -1,9 +1,9 @@
 package bancoferr;
- import java.util.Scanner;
+ import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public class interfaceUso {
-
 	public static void main(String[] args) {
 		
 		
@@ -33,12 +33,14 @@ public class interfaceUso {
 			System.out.println("-----------------------------------------");
 
 			System.out.println("DIGITE O SEU NOME e CPF, NESSA ORDEM!!");
+			ArrayList<Cliente> Clientes = new ArrayList<Cliente>();
 			
-			Cliente Titular = new Cliente ( nome.nextLine() , cpf.nextLine());
+			Clientes.add( new Cliente ( nome.nextLine() , cpf.nextLine()));
+			System.out.println(Clientes.get(0).getNome());
 			System.out.println("-----------------------------------------");
 
-			boolean validaNome = Titular.NumerosnoNome(Titular.getNome());
-			boolean validaNomeeCpf = Titular.validaNomeeCpf();
+			boolean validaNome = Clientes.get(0).NumerosnoNome(Clientes.get(0).getNome());
+			boolean validaNomeeCpf = Clientes.get(0).validaNomeeCpf();
 			
 			if (validaNome == true && validaNomeeCpf == true ) { 
 				
@@ -46,7 +48,7 @@ public class interfaceUso {
 	
 			contaCorrente contaCorrente1 = new contaCorrente ( n1.nextInt(4000), n1.nextInt(4000));
 			
-			contaCorrente1.setTitular(Titular); 
+			contaCorrente1.setTitular(Clientes.get(0)); 
 			
 			System.out.println("-----------------------------------------");
 
@@ -54,13 +56,12 @@ public class interfaceUso {
 			System.out.println("O NÚMERO DA SUA CONTA É: " + contaCorrente1.getNumero());
 			System.out.println("O NÚMERO DA SUA AGÊNCIA É: " + contaCorrente1.getAgencia());
 			System.out.println("O TITULAR DA CONTA É: " + contaCorrente1.getTitular().getNome());
-			System.out.println("O CPF INFORMADO É: " + Titular.getCpf());
+			System.out.println("O CPF INFORMADO É: " + Clientes.get(0).getCpf());
 			
 			System.out.println("-----------------------------------------");
 
 		
-		
-		
+			
 			System.out.println("DIGITE O NÃšMERO DA SUA AGÃŠNCIA E O NÃšMERO DA SUA CONTA ");
 			System.out.println("AGÊNCIA: ");
 			boolean validaAgencia = contaCorrente1.validaAgencia(scan.nextInt());
@@ -158,9 +159,9 @@ public class interfaceUso {
 						
 			case 5:
 			System.out.println("QUAL O NOVO NOME: ");
-			Titular.setNome(novoNome.nextLine());
+			Clientes.get(1).setNome(novoNome.nextLine());
 			System.out.println("NOME ALTERADO COM SUCESSO! ");
-			System.out.println("O NOVO NOME É: " + Titular.getNome());
+			System.out.println("O NOVO NOME É: " + Clientes.get(0).getNome());
 			
 		break;
 		
@@ -188,6 +189,8 @@ public class interfaceUso {
 			System.out.println("NÚMERO DA CONTA E/OU AGÊNCIA INCORRETOS!!");
 		}
 			}
+			System.out.println("TEM UM TOTAL DE: " + Clientes.get(0));
+
 		}
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //AQUI SE FAZ A CONTA POUPANÇA
@@ -197,19 +200,19 @@ public class interfaceUso {
 				System.out.println("-----------------------------------------");
 
 				System.out.println("DIGITE O SEU NOME e CPF, NESSA ORDEM!!");
-				
-				Cliente Titular = new Cliente ( nome.nextLine() , cpf.nextLine());
+				ArrayList<Cliente> Clientes = new ArrayList<Cliente>();
+				Clientes.add(new Cliente ( nome.nextLine() , cpf.nextLine()));
 				System.out.println("-----------------------------------------");
 
-				boolean validaNome = Titular.NumerosnoNome(Titular.getNome());
-				boolean validaNomeeCpf = Titular.validaNomeeCpf();
+				boolean validaNome = Clientes.get(0).NumerosnoNome(Clientes.get(0).getNome());
+				boolean validaNomeeCpf =Clientes.get(0).validaNomeeCpf();
 				
 				if (validaNome == true && validaNomeeCpf == true) { 
 				System.out.println("-----------------------------------------");
 		
 				contaPoupanca contaPoupanca1 = new contaPoupanca ( n1.nextInt(4000), n1.nextInt(4000));
 				
-				contaPoupanca1.setTitular(Titular); 
+				contaPoupanca1.setTitular(Clientes.get(0)); 
 				
 				System.out.println("-----------------------------------------");
 
@@ -217,7 +220,7 @@ public class interfaceUso {
 				System.out.println("O NÚMERO DA SUA CONTA É: " + contaPoupanca1.getNumero());
 				System.out.println("O NÚMERO DA SUA AGÊNCIA: " + contaPoupanca1.getAgencia());
 				System.out.println("TITULAR DA CONTA: " + contaPoupanca1.getTitular().getNome());
-				System.out.println("O CPF INFORMADO É: " + Titular.getCpf());
+				System.out.println("O CPF INFORMADO É: " + Clientes.get(0).getCpf());
 				
 				System.out.println("-----------------------------------------");
 
@@ -326,9 +329,9 @@ public class interfaceUso {
 							
 				case 5:
 				System.out.println("QUAL O NOVO NOME: ");
-				Titular.setNome(novoNome.nextLine());
+				Clientes.get(0).setNome(novoNome.nextLine());
 				System.out.println("NOME ALTERADO COM SUCESSO! ");
-				System.out.println("O NOVO NOME É: " + Titular.getNome());
+				System.out.println("O NOVO NOME É: " + Clientes.get(0).getNome());
 				
 			break;
 			
