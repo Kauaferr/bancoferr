@@ -107,9 +107,10 @@ public class interfaceUso {
 		
 			case 1: 
 			System.out.println("QUANTO VOCÊ DESEJA DEPOSITAR?:");
-			contaCorrente1.depositar(scan.nextDouble());
+			boolean validaDeposito = contaCorrente1.depositar(scan.nextDouble());
+			if (validaDeposito == true) {
 			contaCorrente1.cobrarTaxa();
-			
+			}
 		break;
 		
 			case 2: 
@@ -269,8 +270,11 @@ public class interfaceUso {
 			
 				case 1: 
 				System.out.println("QUANTO VOCÊ DESEJA DEPOSITAR?:");
-				contaPoupanca1.depositar(scan.nextDouble());
-				contaPoupanca1.somarBonus();
+				boolean validaDeposito = contaPoupanca1.depositar(scan.nextDouble());
+				if ( validaDeposito == true) {
+					contaPoupanca1.somarBonus();
+
+				}
 
 				
 			break;

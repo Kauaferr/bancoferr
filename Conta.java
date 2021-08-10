@@ -55,12 +55,22 @@ public class Conta {
 	}
 	
 	
-	public void depositar(double valor ) {
-		
+	public boolean depositar(double valor ) {
+	if (  valor>0) {	
 	this.saldo += valor;
 	System.out.println("FOI DEPOSITADO: " + valor + "R$");
-	
+	return true;
+}else {
+	if ( valor <= 0 ) {
+		System.out.println("NÃO É POSSÍVEL DEPOSITAR VALORES MENORES OU IGUAL A ZERO");
+		return false;
 }
+	else {
+		return false;
+
+	}
+}
+	}
 
 	public boolean sacar(double valor) {
 		if (this.saldo >= valor && valor > 0) {
@@ -76,7 +86,7 @@ public class Conta {
 			else {
 				
 				if( this.saldo < valor) {
-					System.out.println("SALDO INSUFICIENTE");
+					System.out.println("SALDO INSUFICIENTE!!");
 					return false;
 				}
 			}
