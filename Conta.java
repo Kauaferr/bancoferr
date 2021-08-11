@@ -1,8 +1,8 @@
 package bancoferr;
 
 
-public class Conta { 
-	
+public class Conta implements InterfaceContas{ 
+	protected double bonus = 0.03;
 	protected double saldo;
 	protected int numero;
 	protected int agencia;
@@ -56,11 +56,13 @@ public class Conta {
 	
 	
 	public boolean depositar(double valor ) {
-	if (  valor>0) {	
+	if (  valor > 0) {	
 	this.saldo += valor;
 	System.out.println("FOI DEPOSITADO: " + valor + "R$");
 	return true;
-}else {
+	
+	}else {
+		
 	if ( valor <= 0 ) {
 		System.out.println("NÃO É POSSÍVEL DEPOSITAR VALORES MENORES OU IGUAL A ZERO");
 		return false;
@@ -73,6 +75,7 @@ public class Conta {
 	}
 
 	public boolean sacar(double valor) {
+		
 		if (this.saldo >= valor && valor > 0) {
 			this.saldo -= valor;
 			System.out.println("FOI SACADO: " + valor + "R$");
@@ -118,6 +121,20 @@ public class Conta {
 		return false;
 		}
 	
+	
+	public void cobrarTaxa() {
+		this.saldo -= this.saldo * this.taxa;
+		System.out.println("FOI DESCONTADO A TAXA DE ATUAÇÃO DE 0,02% DO BANCO SOBRE CONTAS CORRENTES");
+		System.out.println("SEU SALDO AGORA É: " + getSaldo() + "R$");
+
+	}
+	
+	public void somarBonus() {
+	
+		this.saldo += this.saldo * this.bonus;
+		System.out.println("VOCÊ GANHOU UM BÔNUS DO NOSSO BANCO DE EXATOS 0,03% SOBRE SEU SALDO");
+		System.out.println("SEU SALDO AGORA É: " + getSaldo() + "R$");
+	}
 //------------------------------------------------------------------------------------------------
 	public double getSaldo() {
 		return saldo;

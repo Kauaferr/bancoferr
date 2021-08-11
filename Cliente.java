@@ -32,21 +32,15 @@ public class Cliente {
 	
 	public boolean validaNomeeCpf() {
 		
-		if( this.nome.isEmpty()) {
-			
-			System.out.println("O CAMPO NOME E/OU CPF ESTÃO VAZIO!!");
-
+		if( this.nome.isEmpty() && this.cpf.isEmpty()) {
+			System.out.println("O CAMPO NOME E/OU CPF ESTÁ VAZIOS");
 			return false;
-		}else {
-			if( this.cpf.isEmpty()) {
-				System.out.println("O CAMPO NOME E/OU CPF ESTÃO VAZIO!!");
-
-				return false;
+		
 			}else {                                
 				return true;
 			}
 		}
-	}
+	
 	public boolean NumerosnoNome (String nome) {
 		
 		if( nome.contains("0")) {

@@ -19,7 +19,11 @@ public class interfaceUso {
 		Scanner cpf = new Scanner(System.in);
 		Scanner novoNome = new Scanner(System.in);
 		
-		
+		ArrayList<Conta> Contas = new ArrayList<Conta>();
+
+		for (int cont4 = 0; cont4<=5; cont4++) {
+
+			
 		
 		System.out.println("-----------------------------------------");
 		System.out.println("QUAL CONTA VOCÊ DESEJA CRIAR?");
@@ -34,7 +38,7 @@ public class interfaceUso {
 
 			System.out.println("DIGITE O SEU NOME e CPF, NESSA ORDEM!!");
 			ArrayList<Cliente> Clientes = new ArrayList<Cliente>();
-			
+
 			Clientes.add( new Cliente ( nome.nextLine() , cpf.nextLine()));
 			System.out.println(Clientes.get(0).getNome());
 			System.out.println("-----------------------------------------");
@@ -46,27 +50,28 @@ public class interfaceUso {
 				
 			System.out.println("-----------------------------------------");
 	
-			contaCorrente contaCorrente1 = new contaCorrente ( n1.nextInt(4000), n1.nextInt(4000));
+
+			Contas.add(new contaCorrente ( n1.nextInt(4000), n1.nextInt(4000)));
 			
-			contaCorrente1.setTitular(Clientes.get(0)); 
+			Contas.get(0).setTitular(Clientes.get(0)); 
 			
 			System.out.println("-----------------------------------------");
 
 				
-			System.out.println("O NÚMERO DA SUA CONTA É: " + contaCorrente1.getNumero());
-			System.out.println("O NÚMERO DA SUA AGÊNCIA É: " + contaCorrente1.getAgencia());
-			System.out.println("O TITULAR DA CONTA É: " + contaCorrente1.getTitular().getNome());
+			System.out.println("O NÚMERO DA SUA CONTA É: " + Contas.get(0).getNumero());
+			System.out.println("O NÚMERO DA SUA AGÊNCIA É: " + Contas.get(0).getAgencia());
+			System.out.println("O TITULAR DA CONTA É: " + Contas.get(0).getTitular().getNome());
 			System.out.println("O CPF INFORMADO É: " + Clientes.get(0).getCpf());
 			
 			System.out.println("-----------------------------------------");
 
 		
 			
-			System.out.println("DIGITE O NÃšMERO DA SUA AGÃŠNCIA E O NÃšMERO DA SUA CONTA ");
+			System.out.println("DIGITE O NÚMERO DA SUA AGÊNCIA E O NÚMERO DA SUA CONTA ");
 			System.out.println("AGÊNCIA: ");
-			boolean validaAgencia = contaCorrente1.validaAgencia(scan.nextInt());
+			boolean validaAgencia = Contas.get(0).validaAgencia(scan.nextInt());
 			System.out.println("NÚMERO: ");
-			boolean validaNumero = contaCorrente1.validaNumero(scan.nextInt());
+			boolean validaNumero = Contas.get(0).validaNumero(scan.nextInt());
 			
 			System.out.println("-----------------------------------------");
 
@@ -75,12 +80,12 @@ public class interfaceUso {
 			
 			System.out.println("CRIE UMA SENHA PARA A SUA CONTA: ");
 		
-			contaCorrente1.setSenha(senha.nextInt());
+			Contas.get(0).setSenha(senha.nextInt());
 		
 		
 	
 			System.out.println("SENHA: ");
-			contaCorrente1.validaSenha(r1.nextInt());
+			Contas.get(0).validaSenha(r1.nextInt());
 			int cont = 10;
 			
 		while ( cont >= 0) {
@@ -108,29 +113,29 @@ public class interfaceUso {
 		
 			case 1: 
 			System.out.println("QUANTO VOCÊ DESEJA DEPOSITAR?:");
-			boolean validaDeposito = contaCorrente1.depositar(scan.nextDouble());
+			boolean validaDeposito = Contas.get(0).depositar(scan.nextDouble());
 			if (validaDeposito == true) {
-			contaCorrente1.cobrarTaxa();
+				Contas.get(0).cobrarTaxa();
 			}
 		break;
 		
 			case 2: 
 			System.out.println("QUANTO VOCÊ DESEJA SACAR?:");
-			boolean validaSaque = contaCorrente1.sacar(scan.nextDouble());
+			boolean validaSaque = Contas.get(0).sacar(scan.nextDouble());
 			if ( validaSaque == true) {
-			contaCorrente1.cobrarTaxa();
+				Contas.get(0).cobrarTaxa();
 			}
 			
 		break;
 			
 			case 3:
 				System.out.println("DIGITE O NÚMERO E A AGÊNCIA DA CONTA DE DESTINO?: ");
-				Conta contaDestino = new contaCorrente(scan.nextInt(), scan.nextInt());
+				Conta contaDestino = new Conta (scan.nextInt(), scan.nextInt());
 					
 				int confereNumeroDestino = contaDestino.getNumero();
 				int confereNumeroAgencia = contaDestino.getAgencia();
-				int pegarNumeroRemetente = contaCorrente1.getNumero();
-				int pegarAgenciaRemetente = contaCorrente1.getAgencia();
+				int pegarNumeroRemetente = contaDestino.getNumero();
+				int pegarAgenciaRemetente = contaDestino.getAgencia();
 					
 				if( confereNumeroDestino == pegarNumeroRemetente && confereNumeroAgencia == pegarAgenciaRemetente) {
 					System.out.println("A CONTA DE DESTINO E CONTA REMETENTE SÃO IGUAIS!! TRANSFERÊNCIA IMPOSSÍVEL DE SER REALIZADA");
@@ -138,28 +143,28 @@ public class interfaceUso {
 				else {
 					
 					System.out.println("QUANTO VOCÊ DESEJA TRANSFERIR?:");
-					boolean validaTransferencia = contaCorrente1.transferir(r1.nextDouble(), contaDestino);
+					boolean validaTransferencia = Contas.get(0).transferir(r1.nextDouble(), contaDestino);
 					if ( validaTransferencia == true) {
-					contaCorrente1.cobrarTaxa();
+						Contas.get(0).cobrarTaxa();
 					}
 				}
 		break;	
 			
 			case 4:
 			System.out.println("DIGITE A SUA SENHA ATUAL: ");
-			boolean validaSenha = contaCorrente1.validaSenha(scan.nextInt());
+			boolean validaSenha = Contas.get(0).validaSenha(scan.nextInt());
 						
 				if ( validaSenha == true) {
 							
 					System.out.println("DEGITE A SENHA QUE DESEJA CRIAR: ");
-					contaCorrente1.setSenha(scan.nextInt());
+					Contas.get(0).setSenha(scan.nextInt());
 					System.out.println("SENHA ALTERADA COM SUCESSO!!");
 						}
 		break;
 						
 			case 5:
 			System.out.println("QUAL O NOVO NOME: ");
-			Clientes.get(1).setNome(novoNome.nextLine());
+			Clientes.get(0).setNome(novoNome.nextLine());
 			System.out.println("NOME ALTERADO COM SUCESSO! ");
 			System.out.println("O NOVO NOME É: " + Clientes.get(0).getNome());
 			
@@ -174,13 +179,12 @@ public class interfaceUso {
 		
 		
 			case 7:
-			System.out.println("SEU SALDO É: "  + contaCorrente1.getSaldo());
+			System.out.println("SEU SALDO É: "  + Contas.get(0).getSaldo());
 									
 									
 		break;	
 		
-			case 8:
-			System.out.println("SEU NOME É: " + contaCorrente1.getTitular().getNome());
+			
 		}
 		}
 		
@@ -189,7 +193,6 @@ public class interfaceUso {
 			System.out.println("NÚMERO DA CONTA E/OU AGÊNCIA INCORRETOS!!");
 		}
 			}
-			System.out.println("TEM UM TOTAL DE: " + Clientes.get(0));
 
 		}
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -198,29 +201,29 @@ public class interfaceUso {
 			if ( resposta0 == 2) {
 				
 				System.out.println("-----------------------------------------");
+				ArrayList<Cliente> ClientesPoupanca = new ArrayList<Cliente>();
 
 				System.out.println("DIGITE O SEU NOME e CPF, NESSA ORDEM!!");
-				ArrayList<Cliente> Clientes = new ArrayList<Cliente>();
-				Clientes.add(new Cliente ( nome.nextLine() , cpf.nextLine()));
+				ClientesPoupanca.add(new Cliente ( nome.nextLine() , cpf.nextLine()));
 				System.out.println("-----------------------------------------");
 
-				boolean validaNome = Clientes.get(0).NumerosnoNome(Clientes.get(0).getNome());
-				boolean validaNomeeCpf =Clientes.get(0).validaNomeeCpf();
+				boolean validaNome = ClientesPoupanca.get(0).NumerosnoNome(ClientesPoupanca.get(0).getNome());
+				boolean validaNomeeCpf = ClientesPoupanca.get(0).validaNomeeCpf();
 				
 				if (validaNome == true && validaNomeeCpf == true) { 
 				System.out.println("-----------------------------------------");
-		
-				contaPoupanca contaPoupanca1 = new contaPoupanca ( n1.nextInt(4000), n1.nextInt(4000));
+
+				Contas.add( new contaPoupanca ( n1.nextInt(4000), n1.nextInt(4000)));
 				
-				contaPoupanca1.setTitular(Clientes.get(0)); 
+				Contas.get(1).setTitular(ClientesPoupanca.get(0)); 
 				
 				System.out.println("-----------------------------------------");
 
 					
-				System.out.println("O NÚMERO DA SUA CONTA É: " + contaPoupanca1.getNumero());
-				System.out.println("O NÚMERO DA SUA AGÊNCIA: " + contaPoupanca1.getAgencia());
-				System.out.println("TITULAR DA CONTA: " + contaPoupanca1.getTitular().getNome());
-				System.out.println("O CPF INFORMADO É: " + Clientes.get(0).getCpf());
+				System.out.println("O NÚMERO DA SUA CONTA É: " + Contas.get(1).getNumero());
+				System.out.println("O NÚMERO DA SUA AGÊNCIA: " + Contas.get(1).getAgencia());
+				System.out.println("TITULAR DA CONTA: " + Contas.get(1).getTitular().getNome());
+				System.out.println("O CPF INFORMADO É: " + Contas.get(1).getTitular().getCpf());
 				
 				System.out.println("-----------------------------------------");
 
@@ -229,9 +232,9 @@ public class interfaceUso {
 			
 				System.out.println("DIGITE O NÚMERO DA AGÊNCIA E O NÚMERO DA SUA CONTA ");
 				System.out.println("AGÊNCIA: ");
-				boolean validaAgencia = contaPoupanca1.validaAgencia(scan.nextInt());
+				boolean validaAgencia = Contas.get(1).validaAgencia(scan.nextInt());
 				System.out.println("NÚMERO: ");
-				boolean validaNumero = contaPoupanca1.validaNumero(scan.nextInt());
+				boolean validaNumero = Contas.get(1).validaNumero(scan.nextInt());
 				
 				System.out.println("-----------------------------------------");
 
@@ -240,11 +243,11 @@ public class interfaceUso {
 				
 				System.out.println("CRIE UMA SENHA PARA A SUA CONTA: ");
 			
-				contaPoupanca1.setSenha(senha.nextInt());
+				Contas.get(1).setSenha(senha.nextInt());
 			
 			
 				System.out.println("SENHA: ");
-				boolean validaSenha1 = contaPoupanca1.validaSenha(r1.nextInt());
+				boolean validaSenha1 = Contas.get(1).validaSenha(r1.nextInt());
 				if( validaSenha1 == true) {
 			
 				int cont = 10;
@@ -273,9 +276,9 @@ public class interfaceUso {
 			
 				case 1: 
 				System.out.println("QUANTO VOCÊ DESEJA DEPOSITAR?:");
-				boolean validaDeposito = contaPoupanca1.depositar(scan.nextDouble());
+				boolean validaDeposito = Contas.get(1).depositar(scan.nextDouble());
 				if ( validaDeposito == true) {
-					contaPoupanca1.somarBonus();
+					Contas.get(1).somarBonus();
 
 				}
 
@@ -284,9 +287,9 @@ public class interfaceUso {
 			
 				case 2: 
 				System.out.println("QUANTO VOCÊ DESEJA SACAR?:");
-				boolean validaBonus = contaPoupanca1.sacar(scan.nextDouble());
+				boolean validaBonus = Contas.get(1).sacar(scan.nextDouble());
 				if( validaBonus == true) {
-				contaPoupanca1.somarBonus();
+					Contas.get(1).somarBonus();
 				}
 
 				
@@ -295,12 +298,13 @@ public class interfaceUso {
 				
 				case 3:
 					System.out.println("DIGITE O NÚMERO E A AGÊNCIA DA CONTA DE DESTINO?: ");
-					Conta contaDestino = new Conta (scan.nextInt(), scan.nextInt());
+
+					Conta contaDestino =  new Conta (scan.nextInt(), scan.nextInt());
 						
 					int confereNumeroDestino = contaDestino.getNumero();
 					int confereNumeroAgencia = contaDestino.getAgencia();
-					int pegarNumeroRemetente = contaPoupanca1.getNumero();
-					int pegarAgenciaRemetente = contaPoupanca1.getAgencia();
+					int pegarNumeroRemetente = contaDestino.getNumero();
+					int pegarAgenciaRemetente = contaDestino.getAgencia();
 						
 					if( confereNumeroDestino == pegarNumeroRemetente && confereNumeroAgencia == pegarAgenciaRemetente) {
 						System.out.println("A CONTA DE DESTINO E CONTA REMETENTE SÃO IGUAIS!! TRANSFERENCIA IMPOSSÍVEL DE SER REALIZADA");
@@ -308,8 +312,8 @@ public class interfaceUso {
 					else {
 						
 						System.out.println("QUANTO VOCÊ DESEJA TRANSFERIR?:");
-						contaPoupanca1.transferir(r1.nextDouble(), contaDestino);
-						contaPoupanca1.somarBonus();
+						Contas.get(1).transferir(r1.nextDouble(), contaDestino);
+						Contas.get(1).somarBonus();
 
 
 					}
@@ -317,21 +321,21 @@ public class interfaceUso {
 				
 				case 4:
 				System.out.println("DIGITE A SUA SENHA ATUAL: ");
-				boolean validaSenha2 = contaPoupanca1.validaSenha(scan.nextInt());
+				boolean validaSenha2 = Contas.get(2).validaSenha(scan.nextInt());
 							
 					if ( validaSenha2 == true) {
 								
 						System.out.println("DEGITE A SENHA QUE DESEJA CRIAR: ");
-						contaPoupanca1.setSenha(scan.nextInt());
+						Contas.get(1).setSenha(scan.nextInt());
 						System.out.println("SENHA ALTERADA COM SUCESSO!!");
 							}
 			break;
 							
 				case 5:
 				System.out.println("QUAL O NOVO NOME: ");
-				Clientes.get(0).setNome(novoNome.nextLine());
+				ClientesPoupanca.get(0).setNome(novoNome.nextLine());
 				System.out.println("NOME ALTERADO COM SUCESSO! ");
-				System.out.println("O NOVO NOME É: " + Clientes.get(0).getNome());
+				System.out.println("O NOVO NOME É: " + ClientesPoupanca.get(0).getNome());
 				
 			break;
 			
@@ -344,7 +348,7 @@ public class interfaceUso {
 			
 			
 				case 7:
-				System.out.println("SEU SALDO É: "  + contaPoupanca1.getSaldo());
+				System.out.println("SEU SALDO É: "  + Contas.get(1).getSaldo());
 										
 										
 			break;	
@@ -353,15 +357,21 @@ public class interfaceUso {
 			}
 			
 				}
+
 			}
 			else {
 				
 				System.out.println("NÚMERO DA CONTA E/OU AGÊNCIA INCORRETOS!!");
 			}
 				}
+
 				
 			}
 		}
-	}
-}
+		System.out.println("CONTAS CRIADAS: " + Contas.toString());
 
+	}
+
+		
+}
+}

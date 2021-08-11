@@ -1,6 +1,6 @@
 package bancoferr;
 
-public class contaPoupanca extends 	contaCorrente{
+public class contaPoupanca extends 	contaCorrente implements InterfaceContas{
 
 	private double bonus = 0.03;
 	
