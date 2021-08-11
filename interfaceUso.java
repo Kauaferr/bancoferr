@@ -368,10 +368,10 @@ public class interfaceUso {
 				
 			}
 		}
-		System.out.println("CONTAS CRIADAS: " + Contas.toString());
 
 	}
 
-		
+		System.out.println("CONTAS CRIADAS: " + Contas.toString());
+
 }
 }
