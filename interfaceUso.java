@@ -19,9 +19,9 @@ public class interfaceUso {
 		Scanner cpf = new Scanner(System.in);
 		Scanner novoNome = new Scanner(System.in);
 		
-		ArrayList<Conta> Contas = new ArrayList<Conta>();
 
 		for (int cont4 = 0; cont4<=5; cont4++) {
+			ArrayList<Conta> Contas = new ArrayList<Conta>();
 
 			
 		
@@ -36,15 +36,18 @@ public class interfaceUso {
 		if (resposta0 == 1) {
 			System.out.println("-----------------------------------------");
 
-			System.out.println("DIGITE O SEU NOME e CPF, NESSA ORDEM!!");
-			ArrayList<Cliente> Clientes = new ArrayList<Cliente>();
 
-			Clientes.add( new Cliente ( nome.nextLine() , cpf.nextLine()));
-			System.out.println(Clientes.get(0).getNome());
+			Cliente Cliente = new Cliente();
+			System.out.println("DIGITE O SEU NOME: ");
+			Cliente.setNome(nome.nextLine());
+			System.out.println("DIGITE O SEU CPF: ");
+			Cliente.setCpf(cpf.nextLine());
+			
+			System.out.println(Cliente.getNome());
 			System.out.println("-----------------------------------------");
 
-			boolean validaNome = Clientes.get(0).NumerosnoNome(Clientes.get(0).getNome());
-			boolean validaNomeeCpf = Clientes.get(0).validaNomeeCpf();
+			boolean validaNome = Cliente.NumerosnoNome(Cliente.getNome());
+			boolean validaNomeeCpf = Cliente.validaNomeeCpf();
 			
 			if (validaNome == true && validaNomeeCpf == true ) { 
 				
@@ -53,15 +56,15 @@ public class interfaceUso {
 
 			Contas.add(new contaCorrente ( n1.nextInt(4000), n1.nextInt(4000)));
 			
-			Contas.get(0).setTitular(Clientes.get(0)); 
+			Contas.get(cont4).setTitular(Cliente); 
 			
 			System.out.println("-----------------------------------------");
 
 				
-			System.out.println("O NÚMERO DA SUA CONTA É: " + Contas.get(0).getNumero());
-			System.out.println("O NÚMERO DA SUA AGÊNCIA É: " + Contas.get(0).getAgencia());
-			System.out.println("O TITULAR DA CONTA É: " + Contas.get(0).getTitular().getNome());
-			System.out.println("O CPF INFORMADO É: " + Clientes.get(0).getCpf());
+			System.out.println("O NÚMERO DA SUA CONTA É: " + Contas.get(cont4).getNumero());
+			System.out.println("O NÚMERO DA SUA AGÊNCIA É: " + Contas.get(cont4).getAgencia());
+			System.out.println("O TITULAR DA CONTA É: " + Contas.get(cont4).getTitular().getNome());
+			System.out.println("O CPF INFORMADO É: " + Cliente.getCpf());
 			
 			System.out.println("-----------------------------------------");
 
@@ -69,9 +72,9 @@ public class interfaceUso {
 			
 			System.out.println("DIGITE O NÚMERO DA SUA AGÊNCIA E O NÚMERO DA SUA CONTA ");
 			System.out.println("AGÊNCIA: ");
-			boolean validaAgencia = Contas.get(0).validaAgencia(scan.nextInt());
+			boolean validaAgencia = Contas.get(cont4).validaAgencia(scan.nextInt());
 			System.out.println("NÚMERO: ");
-			boolean validaNumero = Contas.get(0).validaNumero(scan.nextInt());
+			boolean validaNumero = Contas.get(cont4).validaNumero(scan.nextInt());
 			
 			System.out.println("-----------------------------------------");
 
@@ -80,7 +83,7 @@ public class interfaceUso {
 			
 			System.out.println("CRIE UMA SENHA PARA A SUA CONTA: ");
 		
-			Contas.get(0).setSenha(senha.nextInt());
+			Contas.get(cont4).setSenha(senha.nextInt());
 		
 		
 	
@@ -113,17 +116,17 @@ public class interfaceUso {
 		
 			case 1: 
 			System.out.println("QUANTO VOCÊ DESEJA DEPOSITAR?:");
-			boolean validaDeposito = Contas.get(0).depositar(scan.nextDouble());
+			boolean validaDeposito = Contas.get(cont4).depositar(scan.nextDouble());
 			if (validaDeposito == true) {
-				Contas.get(0).cobrarTaxa();
+				Contas.get(cont4).cobrarTaxa();
 			}
 		break;
 		
 			case 2: 
 			System.out.println("QUANTO VOCÊ DESEJA SACAR?:");
-			boolean validaSaque = Contas.get(0).sacar(scan.nextDouble());
+			boolean validaSaque = Contas.get(cont4).sacar(scan.nextDouble());
 			if ( validaSaque == true) {
-				Contas.get(0).cobrarTaxa();
+				Contas.get(cont4).cobrarTaxa();
 			}
 			
 		break;
@@ -143,30 +146,30 @@ public class interfaceUso {
 				else {
 					
 					System.out.println("QUANTO VOCÊ DESEJA TRANSFERIR?:");
-					boolean validaTransferencia = Contas.get(0).transferir(r1.nextDouble(), contaDestino);
+					boolean validaTransferencia = Contas.get(cont4).transferir(r1.nextDouble(), contaDestino);
 					if ( validaTransferencia == true) {
-						Contas.get(0).cobrarTaxa();
+						Contas.get(cont4).cobrarTaxa();
 					}
 				}
 		break;	
 			
 			case 4:
 			System.out.println("DIGITE A SUA SENHA ATUAL: ");
-			boolean validaSenha = Contas.get(0).validaSenha(scan.nextInt());
+			boolean validaSenha = Contas.get(cont4).validaSenha(scan.nextInt());
 						
 				if ( validaSenha == true) {
 							
 					System.out.println("DEGITE A SENHA QUE DESEJA CRIAR: ");
-					Contas.get(0).setSenha(scan.nextInt());
+					Contas.get(cont4).setSenha(scan.nextInt());
 					System.out.println("SENHA ALTERADA COM SUCESSO!!");
 						}
 		break;
 						
 			case 5:
 			System.out.println("QUAL O NOVO NOME: ");
-			Clientes.get(0).setNome(novoNome.nextLine());
+			Cliente.setNome(novoNome.nextLine());
 			System.out.println("NOME ALTERADO COM SUCESSO! ");
-			System.out.println("O NOVO NOME É: " + Clientes.get(0).getNome());
+			System.out.println("O NOVO NOME É: " + Cliente.getNome());
 			
 		break;
 		
@@ -179,7 +182,7 @@ public class interfaceUso {
 		
 		
 			case 7:
-			System.out.println("SEU SALDO É: "  + Contas.get(0).getSaldo());
+			System.out.println("SEU SALDO É: "  + Contas.get(cont4).getSaldo());
 									
 									
 		break;	
@@ -201,29 +204,31 @@ public class interfaceUso {
 			if ( resposta0 == 2) {
 				
 				System.out.println("-----------------------------------------");
-				ArrayList<Cliente> ClientesPoupanca = new ArrayList<Cliente>();
 
-				System.out.println("DIGITE O SEU NOME e CPF, NESSA ORDEM!!");
-				ClientesPoupanca.add(new Cliente ( nome.nextLine() , cpf.nextLine()));
+				Cliente Clientes = new Cliente();
+				System.out.println("DIGITE O SEU NOME: ");
+				Clientes.setNome(nome.nextLine());
+				System.out.println("DIGITE O SEU CPF: ");
+				Clientes.setCpf(cpf.nextLine());
 				System.out.println("-----------------------------------------");
 
-				boolean validaNome = ClientesPoupanca.get(0).NumerosnoNome(ClientesPoupanca.get(0).getNome());
-				boolean validaNomeeCpf = ClientesPoupanca.get(0).validaNomeeCpf();
+				boolean validaNome = Clientes.NumerosnoNome(Clientes.getNome());
+				boolean validaNomeeCpf = Clientes.validaNomeeCpf();
 				
 				if (validaNome == true && validaNomeeCpf == true) { 
 				System.out.println("-----------------------------------------");
 
 				Contas.add( new contaPoupanca ( n1.nextInt(4000), n1.nextInt(4000)));
 				
-				Contas.get(1).setTitular(ClientesPoupanca.get(0)); 
+				Contas.get(cont4).setTitular(Clientes); 
 				
 				System.out.println("-----------------------------------------");
 
 					
-				System.out.println("O NÚMERO DA SUA CONTA É: " + Contas.get(1).getNumero());
-				System.out.println("O NÚMERO DA SUA AGÊNCIA: " + Contas.get(1).getAgencia());
-				System.out.println("TITULAR DA CONTA: " + Contas.get(1).getTitular().getNome());
-				System.out.println("O CPF INFORMADO É: " + Contas.get(1).getTitular().getCpf());
+				System.out.println("O NÚMERO DA SUA CONTA É: " + Contas.get(cont4).getNumero());
+				System.out.println("O NÚMERO DA SUA AGÊNCIA: " + Contas.get(cont4).getAgencia());
+				System.out.println("TITULAR DA CONTA: " + Contas.get(cont4).getTitular().getNome());
+				System.out.println("O CPF INFORMADO É: " + Contas.get(cont4).getTitular().getCpf());
 				
 				System.out.println("-----------------------------------------");
 
@@ -232,9 +237,9 @@ public class interfaceUso {
 			
 				System.out.println("DIGITE O NÚMERO DA AGÊNCIA E O NÚMERO DA SUA CONTA ");
 				System.out.println("AGÊNCIA: ");
-				boolean validaAgencia = Contas.get(1).validaAgencia(scan.nextInt());
+				boolean validaAgencia = Contas.get(cont4).validaAgencia(scan.nextInt());
 				System.out.println("NÚMERO: ");
-				boolean validaNumero = Contas.get(1).validaNumero(scan.nextInt());
+				boolean validaNumero = Contas.get(cont4).validaNumero(scan.nextInt());
 				
 				System.out.println("-----------------------------------------");
 
@@ -243,11 +248,11 @@ public class interfaceUso {
 				
 				System.out.println("CRIE UMA SENHA PARA A SUA CONTA: ");
 			
-				Contas.get(1).setSenha(senha.nextInt());
+				Contas.get(cont4).setSenha(senha.nextInt());
 			
 			
 				System.out.println("SENHA: ");
-				boolean validaSenha1 = Contas.get(1).validaSenha(r1.nextInt());
+				boolean validaSenha1 = Contas.get(cont4).validaSenha(r1.nextInt());
 				if( validaSenha1 == true) {
 			
 				int cont = 10;
@@ -276,9 +281,9 @@ public class interfaceUso {
 			
 				case 1: 
 				System.out.println("QUANTO VOCÊ DESEJA DEPOSITAR?:");
-				boolean validaDeposito = Contas.get(1).depositar(scan.nextDouble());
+				boolean validaDeposito = Contas.get(cont4).depositar(scan.nextDouble());
 				if ( validaDeposito == true) {
-					Contas.get(1).somarBonus();
+					Contas.get(cont4).somarBonus();
 
 				}
 
@@ -287,9 +292,9 @@ public class interfaceUso {
 			
 				case 2: 
 				System.out.println("QUANTO VOCÊ DESEJA SACAR?:");
-				boolean validaBonus = Contas.get(1).sacar(scan.nextDouble());
+				boolean validaBonus = Contas.get(cont4).sacar(scan.nextDouble());
 				if( validaBonus == true) {
-					Contas.get(1).somarBonus();
+					Contas.get(cont4).somarBonus();
 				}
 
 				
@@ -312,8 +317,8 @@ public class interfaceUso {
 					else {
 						
 						System.out.println("QUANTO VOCÊ DESEJA TRANSFERIR?:");
-						Contas.get(1).transferir(r1.nextDouble(), contaDestino);
-						Contas.get(1).somarBonus();
+						Contas.get(cont4).transferir(r1.nextDouble(), contaDestino);
+						Contas.get(cont4).somarBonus();
 
 
 					}
@@ -321,21 +326,21 @@ public class interfaceUso {
 				
 				case 4:
 				System.out.println("DIGITE A SUA SENHA ATUAL: ");
-				boolean validaSenha2 = Contas.get(2).validaSenha(scan.nextInt());
+				boolean validaSenha2 = Contas.get(cont4).validaSenha(scan.nextInt());
 							
 					if ( validaSenha2 == true) {
 								
 						System.out.println("DEGITE A SENHA QUE DESEJA CRIAR: ");
-						Contas.get(1).setSenha(scan.nextInt());
+						Contas.get(cont4).setSenha(scan.nextInt());
 						System.out.println("SENHA ALTERADA COM SUCESSO!!");
 							}
 			break;
 							
 				case 5:
 				System.out.println("QUAL O NOVO NOME: ");
-				ClientesPoupanca.get(0).setNome(novoNome.nextLine());
+				Clientes.setNome(novoNome.nextLine());
 				System.out.println("NOME ALTERADO COM SUCESSO! ");
-				System.out.println("O NOVO NOME É: " + ClientesPoupanca.get(0).getNome());
+				System.out.println("O NOVO NOME É: " + Clientes.getNome());
 				
 			break;
 			
@@ -348,7 +353,7 @@ public class interfaceUso {
 			
 			
 				case 7:
-				System.out.println("SEU SALDO É: "  + Contas.get(1).getSaldo());
+				System.out.println("SEU SALDO É: "  + Contas.get(cont4).getSaldo());
 										
 										
 			break;	
@@ -368,10 +373,10 @@ public class interfaceUso {
 				
 			}
 		}
+		System.out.println("CONTAS CRIADAS: " + Contas.toString());
 
 	}
 
-		System.out.println("CONTAS CRIADAS: " + Contas.toString());
 
 }
 }
