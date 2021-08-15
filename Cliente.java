@@ -6,11 +6,7 @@ public class Cliente {
 	private String profissao;
 	
 	
-	public Cliente( String nome, String cpf) {
-		this.nome = nome;
-		this.cpf = cpf;
-		
-	}
+	
 	public String getNome() {
 		return nome;
 	}
@@ -32,56 +28,62 @@ public class Cliente {
 	
 	public boolean validaNomeeCpf() {
 		
-		if( this.nome.isEmpty() && this.cpf.isEmpty()) {
-			System.out.println("O CAMPO NOME E/OU CPF EST¡ VAZIOS");
+		if( this.nome.isEmpty() ) {
+			System.out.println("O CAMPO NOME E/OU CPF EST√Å VAZIOS");
 			return false;
 		
-			}else {                                
-				return true;
+			}else { 
+				if( this.cpf.isEmpty()) {
+					System.out.println("O CAMPO NOME E/OU CPF EST√Å VAZIOS");
+					return false;
+				}else {
+					return true;
+
+				}
 			}
 		}
 	
 	public boolean NumerosnoNome (String nome) {
 		
 		if( nome.contains("0")) {
-			System.out.println("N√O PODE HAVER N⁄MERO NO SEU NOME");
+			System.out.println("N√ÉO PODE HAVER N√öMERO NO SEU NOME");
 			return false;
 		}else {
 			if( nome.contains("1")) {
-				System.out.println("N√O PODE HAVER N⁄MERO NO SEU NOME");
+				System.out.println("N√ÉO PODE HAVER N√öMERO NO SEU NOME");
 				return false;
 			}else {
 				if( nome.contains("2")) {
-					System.out.println("N√O PODE HAVER N⁄MERO NO SEU NOME");
+					System.out.println("N√ÉO PODE HAVER N√öMERO NO SEU NOME");
 					return false;
 				}else {
 					if( nome.contains("3")) {
-						System.out.println("N√O PODE HAVER N⁄MERO NO SEU NOME");
+						System.out.println("N√ÉO PODE HAVER N√öMERO NO SEU NOME");
 						return false;
 					}else {
 						if( nome.contains("4")) {
-							System.out.println("N√O PODE HAVER N⁄MERO NO SEU NOME");
+							System.out.println("N√ÉO PODE HAVER N√öMERO NO SEU NOME");
 							return false;
 						}else {
 							if( nome.contains("5")) {
-								System.out.println("N√O PODE HAVER N⁄MERO NO SEU NOME");
+								System.out.println("N√ÉO PODE HAVER N√öMERO NO SEU NOME");
 								return false;
 							}else {
 								if( nome.contains("6")) {
-									System.out.println("N√O PODE HAVER N⁄MERO NO SEU NOME");
+									System.out.println("N√ÉO PODE HAVER N√öMERO NO SEU NOME");
 									return false;
 								}else {
 									if( nome.contains("7")) {
-										System.out.println("N√O PODE HAVER N⁄MERO NO SEU NOME");
+										System.out.println("N√ÉO PODE HAVER N√öMERO NO SEU NOME");
 										return false;
 									}else {
 										if( nome.contains("8")) {
-											System.out.println("N√O PODE HAVER N⁄MERO NO SEU NOME");
+											System.out.println("N√ÉO PODE HAVER N√öMERO NO SEU NOME");
 											return false;
 										}else {
 											if( nome.contains("9")) {
 												System.out.println("----------------------------------------");
-												System.out.println("N√O PODE HAVER N⁄MERO NO SEU NOME");
+												System.out.println("N√ÉO PODE HAVER N√öMERO NO SEU NOME");
 												return false;
 												
 											}else{
