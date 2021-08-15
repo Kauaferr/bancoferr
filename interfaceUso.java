@@ -1,5 +1,6 @@
 package bancoferr;
  import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -18,13 +19,14 @@ public class interfaceUso {
 		Scanner nome = new Scanner(System.in);
 		Scanner cpf = new Scanner(System.in);
 		Scanner novoNome = new Scanner(System.in);
-		
+		ArrayList<Conta> ContasCriadas = newArrayList<Conta>();
 
-		for (int cont4 = 0; cont4<=5; cont4++) {
-			ArrayList<Conta> Contas = new ArrayList<Conta>();
+		try {
 
-			
-		
+		for (int cont10 = 0; cont10<=5 ; cont10++) {
+	
+		ArrayList<Conta> Contas = new ArrayList<Conta>();
+		int cont4 = Contas.size();
 		System.out.println("-----------------------------------------");
 		System.out.println("QUAL CONTA VOCÊ DESEJA CRIAR?");
 		System.out.println("1 - CONTA CORRENTE");
@@ -55,7 +57,8 @@ public class interfaceUso {
 	
 
 			Contas.add(new contaCorrente ( n1.nextInt(4000), n1.nextInt(4000)));
-			
+			ContasCriadas.add(Contas.get(cont4));
+
 			Contas.get(cont4).setTitular(Cliente); 
 			
 			System.out.println("-----------------------------------------");
@@ -186,7 +189,8 @@ public class interfaceUso {
 									
 									
 		break;	
-		
+		default:
+			System.out.println("OPÇÃO INVÁLIDA");
 			
 		}
 		}
@@ -194,10 +198,12 @@ public class interfaceUso {
 		}
 		else {
 			System.out.println("NÚMERO DA CONTA E/OU AGÊNCIA INCORRETOS!!");
+			
 		}
 			}
 
 		}
+
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //AQUI SE FAZ A CONTA POUPANÇA
 		else {
@@ -219,7 +225,8 @@ public class interfaceUso {
 				System.out.println("-----------------------------------------");
 
 				Contas.add( new contaPoupanca ( n1.nextInt(4000), n1.nextInt(4000)));
-				
+				ContasCriadas.add(Contas.get(cont4));
+
 				Contas.get(cont4).setTitular(Clientes); 
 				
 				System.out.println("-----------------------------------------");
@@ -356,7 +363,10 @@ public class interfaceUso {
 				System.out.println("SEU SALDO É: "  + Contas.get(cont4).getSaldo());
 										
 										
-			break;	
+			break;
+			default:
+				System.out.println("OPÇÃO INVÁLIDA");
+			
 			
 			}
 			}
@@ -370,13 +380,22 @@ public class interfaceUso {
 			}
 				}
 
-				
+
 			}
 		}
-		System.out.println("CONTAS CRIADAS: " + Contas.toString());
+
 
 	}
+		
 
+		System.out.println("CONTAS CRIADAS: " + ContasCriadas.toString());
 
+	}
+		catch( InputMismatchException erro1) {
+			System.out.println("DIGITE CARACTERES NUMÉRICOS!!");
+			System.out.println("CONTAS CRIADAS: " + ContasCriadas.toString());
+
+		}
 }
 }
+
