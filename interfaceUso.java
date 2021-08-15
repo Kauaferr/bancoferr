@@ -19,7 +19,7 @@ public class interfaceUso {
 		Scanner nome = new Scanner(System.in);
 		Scanner cpf = new Scanner(System.in);
 		Scanner novoNome = new Scanner(System.in);
-		ArrayList<Conta> ContasCriadas = newArrayList<Conta>();
+		ArrayList<Conta> ContasCriadas = new ArrayList<Conta>();
 
 		try {
 
